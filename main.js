@@ -23,7 +23,7 @@ let cardsEl = document.querySelector("#cards-el")
 
 let player = {
   name: "Per",
-  chips: 145
+  chips: 6969
 }
 
 let playerEl = document.getElementById("player-el")
@@ -33,6 +33,7 @@ function startGame() {
   if (isAlive === false || hasBlackJack === true) {
     isAlive = true
     hasBlackJack = false
+    player.chips -= 20
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
     cards = [firstCard,secondCard]
@@ -42,6 +43,8 @@ function startGame() {
 }
 
 function renderGame() {
+
+  playerEl.textContent = player.name + ": $" + player.chips
 
   let cardmessage  = "Cards: "
   for(let i = 0; i<cards.length; i++) {
@@ -57,6 +60,7 @@ function renderGame() {
     hasBlackJack = true
     isAlive = false
     message = "Woohoo! You've got Blackjack!"
+    player.chips += 80
   } else {
     //console.log("You're out of the game!")
     isAlive = false

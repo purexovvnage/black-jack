@@ -28,4 +28,10 @@ button {
   border: none;
   margin-bottom: 2px;
   margin-top: 2px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+button:hover {
+  box-shadow: 4px 4px 16px rgba(0,0,0,0.6);
 }
