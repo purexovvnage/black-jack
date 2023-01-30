@@ -30,12 +30,15 @@ let playerEl = document.getElementById("player-el")
 playerEl.textContent = player.name + ": $" + player.chips
 
 function startGame() {
-  isAlive = true
-  let firstCard = getRandomCard()
-  let secondCard = getRandomCard()
-  cards = [firstCard,secondCard]
-  sum = firstCard + secondCard
-  renderGame()
+  if (isAlive === false || hasBlackJack === true) {
+    isAlive = true
+    hasBlackJack = false
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    cards = [firstCard,secondCard]
+    sum = firstCard + secondCard
+    renderGame()
+  }
 }
 
 function renderGame() {
@@ -52,6 +55,7 @@ function renderGame() {
   } else if ( sum === 21 ) {
     //console.log("Woohoo! You've got Blackjack!")
     hasBlackJack = true
+    isAlive = false
     message = "Woohoo! You've got Blackjack!"
   } else {
     //console.log("You're out of the game!")
